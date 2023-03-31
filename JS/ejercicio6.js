@@ -1,23 +1,24 @@
-const form = document.querySelector('form');
-const resultado = document.querySelector('#resultado');
+const searchBtn = document.getElementById('search-btn');
+const textArea = document.getElementById('text');
+const searchTerm = document.getElementById('search');
+const resultsDiv = document.getElementById('results');
 
-form.addEventListener('submit', function(e) {
-	e.preventDefault();
-	
-	const texto = document.querySelector('#texto').value;
-	const buscar = document.querySelector('#buscar').value;
-	
-	if (buscar === '') {
-		mostrarMensaje('Por favor ingrese el texto a buscar');
+searchBtn.addEventListener('click', () => {
+	const text = textArea.value;
+	const term = searchTerm.value;
+
+	if (text.trim() === '' || term.trim() === '') {
+		alert('Ingrese texto y término de búsqueda');
 		return;
 	}
-	
-	const regex = new RegExp(buscar, 'gi');
-	const textoResaltado = texto.replace(regex, '<span class="highlight">$&</span>');
-	
-	resultado.innerHTML = textoResaltado;
-});
 
-function mostrarMensaje(mensaje) {
-	alert(mensaje);
-}
+	const regex = new RegExp(term, 'gi');
+	const matches = text.match(regex);
+
+	if (matches === null) {
+		resultsDiv.innerHTML = 'No se encontraron coincidencias';
+	} else {
+		const highlighted = text.replace(regex, `<mark>${term}</mark>`);
+		resultsDiv.innerHTML = highlighted;
+	}
+});

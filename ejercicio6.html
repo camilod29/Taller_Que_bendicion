@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Buscar texto</title>
-	<style>
-		.highlight {
-			background-color: yellow;
-		}
-	</style>
+    
+	<title>Búsqueda de texto</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="CSS/ejercicio6.css">
 </head>
 <body>
-	<h1>Buscar texto</h1>
-	<form>
-		<label for="texto">Texto:</label>
-		<textarea id="texto"></textarea>
-		<label for="buscar">Buscar:</label>
-		<input type="text" id="buscar">
-		<button type="submit">Buscar</button>
-	</form>
-	<div id="resultado"></div>
-	<script src="/JS/ejercicio6.js"></script>
+	<div class="container">
+		<h1>Búsqueda de texto</h1>
+		<form>
+			<label for="text">Ingrese el texto:</label>
+			<textarea id="text" name="text" rows="10"></textarea>
+			<label for="search">Ingrese el texto a buscar:</label>
+			<input type="text" id="search" name="search">
+			<button type="button" id="search-btn">Buscar</button>
+		</form>
+		<div id="results"></div>
+	</div>
+	<script src="JS/ejercicio6.js"></script>
 </body>
 </html>
